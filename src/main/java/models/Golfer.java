@@ -1,5 +1,7 @@
 package models;
 
+import org.hibernate.annotations.CollectionId;
+
 import javax.persistence.*;
 
 @Entity
@@ -29,18 +31,21 @@ public class Golfer {
         return this.id;
     }
 
+    @Column(name ="first_name")
     public String getFirstName() {
         return this.firstName;
     }
 
+    @Column(name ="last_name")
     public String getLastName() {
         return this.lastName;
     }
 
+    @Column(name = "age")
     public int getAge() {
         return this.age;
     }
-
+    @Column(name= "handicap")
     public int getHandicap() {
         return this.handicap;
     }
