@@ -1,5 +1,10 @@
 package models;
 
+import javax.persistence.*;
+
+@Entity
+@Table (name="golfers")
+
 public class Golfer {
     private String firstName;
     private String lastName;
@@ -17,6 +22,12 @@ public class Golfer {
     public Golfer(){
 
     }
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name ="id")
+    public int getId(){
+        return this.id;
+    }
 
     public String getFirstName() {
         return this.firstName;
@@ -32,10 +43,6 @@ public class Golfer {
 
     public int getHandicap() {
         return this.handicap;
-    }
-
-    public int getId(){
-        return this.id;
     }
 
     public String setFirstName(String newFirstName){
