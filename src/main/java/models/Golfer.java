@@ -8,11 +8,11 @@ import javax.persistence.*;
 @Table (name="golfers")
 
 public class Golfer {
+    private int id;
     private String firstName;
     private String lastName;
     private int age;
     private  int handicap;
-    private int id;
 
     public Golfer(String firstName, String lastName, int age, int  handicap){
         this.firstName = firstName;
@@ -66,8 +66,8 @@ public class Golfer {
         return this.handicap = newHandicap;
     }
 
-    public int setId(int newId){
-        return this.id = newId;
+    public int setId(int id){
+        return this.id = id;
     }
 
 }

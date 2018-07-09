@@ -10,7 +10,7 @@ public class Runner {
       DBGolfer.save(golfer);
 
       Golfer golfer2 = new Golfer("Happy","Gilmore",23,4);
-      DBGolfer.save(golfer);
+      DBGolfer.save(golfer2);
 
       List<Golfer> golfers = DBGolfer.getAll();
   }
