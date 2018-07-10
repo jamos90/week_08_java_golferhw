@@ -5,6 +5,7 @@ import org.hibernate.Criteria;
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
+import org.hibernate.criterion.Restrictions;
 
 import java.util.List;
 
@@ -38,5 +39,35 @@ public class DBGolfer {
         } finally {
             session.close();
         } return results;
+    }
+
+    public static Golfer find(int id){
+        Golfer result = null;
+        session = HibernateUtil.getSessionfactory().openSession();
+        try{
+            Criteria cr = session.createCriteria(Golfer.class);
+            cr.add(Restrictions.eq("id" ,id));
+            result = (Golfer)cr.uniqueResult();
+        } catch (HibernateException e){
+            e.printStackTrace();
+        } finally {
+            session.close();
+        }
+        return result;
+    }
+
+    public static Golfer findbyName(String name){
+        Golfer result = null;
+        session = HibernateUtil.getSessionfactory().openSession();
+        try{
+            Criteria cr = session.createCriteria(Golfer.class);
+            cr.add(Restrictions.eq("name",name));
+            result = (Golfer)cr.uniqueResult();
+        } catch (HibernateException e) {
+            e.printStackTrace();
+        } finally {
+            session.close();
+        }
+        return result;
     }
 }
